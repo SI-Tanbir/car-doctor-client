@@ -1,11 +1,13 @@
-import React from 'react'
+
 
 const Home = () => {
   return (
-    <div>
+    <div className="mt-8">
 
 
         <p>it home</p>
+
+
     </div>
   )
 }
