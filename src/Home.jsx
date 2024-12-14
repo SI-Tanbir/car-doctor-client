@@ -1,3 +1,5 @@
+import About from "./pages/About"
+import Banner from "./pages/Banner"
 
 
 const Home = () => {
@@ -5,7 +7,9 @@ const Home = () => {
     <div className="mt-8">
 
 
-        <p>it home</p>
+          <Banner></Banner>
+          <About></About>
+    
 
 
     </div>

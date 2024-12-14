@@ -6,6 +6,9 @@ import { RouterProvider } from "react-router";
 
 createRoot(document.getElementById("root")).render(
 
-  <RouterProvider router={router} />
+  <div className="max-w-screen-xl m-auto"> 
+
+    <RouterProvider router={router} />
+  </div>
 
 );
