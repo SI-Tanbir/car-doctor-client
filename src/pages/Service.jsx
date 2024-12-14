@@ -3,7 +3,7 @@
 import React, { useEffect } from 'react'
 import data from '../assets/services.json'
 
-console.log(data)
+
 const Service = () => {
   return (
     <div>
