@@ -1,5 +1,6 @@
 import About from "./pages/About"
 import Banner from "./pages/Banner"
+import Service from "./pages/Service"
 
 
 const Home = () => {
@@ -9,6 +10,7 @@ const Home = () => {
 
           <Banner></Banner>
           <About></About>
+          <Service></Service>
     
 
 
