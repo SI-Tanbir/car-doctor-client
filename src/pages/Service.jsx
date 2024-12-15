@@ -1,10 +1,18 @@
 
 
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import data from '../assets/services.json'
 
 
 const Service = () => {
+  const [user,setUser]=useState([])
+  useEffect(()=>{
+    fetch('http://localhost:3000/services')
+    .then(res=>res.json())
+    .then(d=>setUser(d))
+
+
+  },[])
   return (
     <div>
         <div className='text-center space-y-8'>
@@ -17,7 +25,7 @@ const Service = () => {
 
 
         
-        {data.map((res=>
+        {user.map((res=>
 
             <div key={res._id} className='w-[364px]' >
                 <div className='rounded-xl p-6  border'>

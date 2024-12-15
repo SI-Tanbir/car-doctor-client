@@ -27,7 +27,7 @@ const OurTeam = () => {
 
         </div>
 
-
+ 
 
         <div className='border p-2 rounded-lg w-[400px]' >
         <img className=' border border-8  w-ful rounded-lg' src={team3} alt="" />
