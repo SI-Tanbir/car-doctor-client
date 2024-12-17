@@ -1,11 +1,23 @@
 
-import { Link } from 'react-router'
+import { Link, useNavigate } from 'react-router'
 import logo from '../assets/logo.svg'
 import { TfiShoppingCartFull } from "react-icons/tfi";
+import { useContext } from 'react';
+import { AuthContext } from '../Provider/AuthProvider';
 
 
 const Header = () => {
+
+  const {user,handleLogout}=useContext(AuthContext);
+  const navigate =useNavigate()
+  const logoutAndnavigate =()=>{
+    handleLogout();
+    navigate('/login')
+    
+  }
+
   return (
+
     <div className="navbar bg-base-100">
     <div className="navbar-start">
       <div className="dropdown">
@@ -31,11 +43,20 @@ const Header = () => {
     </div>
     <div>
       <ul className='flex gap-10 font-extrabold'>
-        <li>Home</li>
+        <Link to={'/'}>Home</Link>
         <li>About</li>
         <li>Sevice</li>
         <li>Blog</li>
         <li>Contract</li>
+        <Link to={'/login'}>Login</Link>
+        {user && <>   <Link to={'/bookings'}>bookings</Link>  
+
+      <button>
+
+      <li onClick={logoutAndnavigate} >Signout</li>
+      </button>
+        </>}
+
         
         </ul>
     </div>

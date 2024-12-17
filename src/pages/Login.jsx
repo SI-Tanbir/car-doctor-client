@@ -3,7 +3,7 @@ import React, { useContext } from 'react'
 import { AuthContext } from '../Provider/AuthProvider'
 
 const Login = () => {
-    const {signIn}=useContext(AuthContext);
+    const {signIn,setUser}=useContext(AuthContext);
     
     const handleLogin =(e)=>{
         e.preventDefault();
@@ -11,9 +11,12 @@ const Login = () => {
        const password= e.target.password.value;
         console.log(email,password)
         signIn(email,password)
+
         .then((userCredential) => {
              
             const user = userCredential.user;
+              // setUser(user?.email)
+
             
             console.log(user)
           })

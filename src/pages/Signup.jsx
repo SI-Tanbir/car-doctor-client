@@ -1,9 +1,11 @@
 
-import React from 'react'
+import React, { useContext } from 'react'
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import app from '../../firebase';
+import { AuthContext } from '../Provider/AuthProvider';
 
 const handleSignup = (e)=>{
+    const {setUser}=useContext(AuthContext);
     e.preventDefault();
     const email= e.target.email.value;
     const password= e.target.password.value;
@@ -14,8 +16,10 @@ const handleSignup = (e)=>{
      .then((userCredential) => {
        // Signed up 
        const user = userCredential.user;
+      //  setUser(user?.email)
        // ...
        console.log(user)
+
      })
      .catch((error) => {
        const errorCode = error.code;
