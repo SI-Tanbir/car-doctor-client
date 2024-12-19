@@ -1,7 +1,12 @@
 import React from "react";
-import { useLoaderData } from "react-router";
+import { useLoaderData, useLocation } from "react-router";
 
 const Checkout = () => {
+
+  
+ const location=useLocation();
+      console.log('checkout ',location.pathname)
+
   const { title, price, img } = useLoaderData();
   // console.log(data)
   const handleCheckout =(e)=>{

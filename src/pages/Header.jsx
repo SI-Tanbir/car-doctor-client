@@ -45,7 +45,7 @@ const Header = () => {
       <ul className='flex gap-10 font-extrabold'>
         <Link to={'/'}>Home</Link>
         <li>About</li>
-        <li>Sevice</li>
+        <a href='/#service'>service</a>
         <li>Blog</li>
         <li>Contract</li>
         <Link to={'/login'}>Login</Link>

@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from "react";
 import data from "../assets/services.json";
 import { FaArrowRight } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Service = () => {
+
+  const location=useLocation();
+      console.log('service ',location.pathname)
+
   const [user, setUser] = useState([]);
   useEffect(() => {
     fetch("http://localhost:3000/services")
@@ -13,7 +17,7 @@ const Service = () => {
   return (
     <div>
       <div className="text-center space-y-8">
-        <p className=" font-bold">service</p>
+        <p className=" font-bold"><a href="#service">service</a></p>
         <p className=" font-extrabold text-3xl">Our Service Area</p>
         <p>
           the majority have suffered alteration in some form, by injected
