@@ -48,13 +48,30 @@ const AuthProvider = ({ children }) => {
     signOut(auth)
       .then(() => {
         console.log("User logged out");
-        setUser(null);  // Clear user data when logged out
+  
+        // Clear user data from context
+        setUser(null);
+  
+        // Call the server to clear the JWT cookie from the server-side
+        fetch('http://localhost:3000/logout', {
+          method: 'POST',
+          credentials: 'include', // Include cookies in the request
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data.message);  // 'Logged out successfully'
+            // Optionally navigate to the login page
+            navigate('/login');
+          })
+          .catch((error) => {
+            console.error("Error during server logout:", error);
+          });
       })
       .catch((error) => {
-        console.error("Error logging out: ", error);
+        console.error("Error logging out:", error);
       });
   };
-
+  
 
 
 

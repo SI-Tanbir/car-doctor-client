@@ -7,18 +7,30 @@ const Bookings = () => {
   const [bookings, setBookings] = useState([]);
   console.log(bookings);
 
+
+
   useEffect(() => {
     if (user) {
-      axios
-        .get(`http://localhost:3000/bookings?email=${user}`, {
-          withCredentials: true,
-        })
+      fetch(`http://localhost:3000/bookings?email=${user}`, {
+        method: "GET",
+        credentials: "include", // Ensures cookies are included
+      })
         .then((res) => {
-          setBookings(res.data);
-          // console.log(res.data)
-        });
+          if (!res.ok) {
+            throw new Error(`HTTP error! status: ${res.status}`);
+          }
+          return res.json();
+        })
+        .then((data) => {
+          setBookings(data);
+          // console.log(data);
+        })
+        .catch((err) => console.error("Fetch error:", err));
     }
   }, [user]);
+
+  
+  
 
   const handleDelete = (_id) => {
     console.log(_id);
